@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nexus
+  namespace: openshift-gitops
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: base/
+    repoURL: https://github.com/agiertli/backstage-dynamic-plugin-nexus.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+     - SkipDryRunOnMissingResource=true
+    automated:
+      selfHeal: true
+
+
+
+ 
