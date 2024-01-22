@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: base/
+    path: nexus-operator/base
     repoURL: https://github.com/agiertli/backstage-dynamic-plugin-nexus.git
     targetRevision: main
   syncPolicy:
