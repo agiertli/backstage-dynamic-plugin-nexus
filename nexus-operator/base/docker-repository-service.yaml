@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-repository
+  namespace: nexus
+spec:
+  ports:
+  - name: docker
+    port: 5003
+  selector:
+    app: sonatype-nexus

@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: docker-repository
+  namespace: nexus
+spec:
+  port:
+    targetPort: docker
+  to:
+    kind: Service
+    name: docker-repository
+    weight: 100
+  wildcardPolicy: None
