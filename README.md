@@ -23,7 +23,7 @@ In particular it demonstrates `Nexus Plugin`.
   ![Docker Registry Nexus Bearer token](images/docker-bearer-token.png "Docker Bearer Token")
   - Write down the Docker Registry URL:
   ```
-  export DOCKER_REGISTRY=`oc get route docker-registry -n nexus -o jsonpath='{.spec.host}{"\n"}'`
+  export DOCKER_REGISTRY=`oc get route docker-repository -n nexus -o jsonpath='{.spec.host}{"\n"}'`
   ```
   - Test the Docker Registry URL (the URL in the screenshot is irrelevant, the Route URL always takes precedence) by executing :
   ``` 
