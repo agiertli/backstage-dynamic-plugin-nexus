@@ -6,6 +6,8 @@ metadata:
 spec:
   port:
     targetPort: docker
+  tls:
+    termination: edge
   to:
     kind: Service
     name: docker-repository
