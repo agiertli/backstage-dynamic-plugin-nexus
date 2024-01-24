@@ -27,13 +27,13 @@ In particular it demonstrates `Nexus Plugin`.
   ```
   - Test the Docker Registry URL (the URL in the screenshot is irrelevant, the Route URL always takes precedence) by executing :
   ``` 
-  docker login $DOCKER_REGISTRY`
+  docker login $DOCKER_REGISTRY` -u admin -p password1!
   ```
   - Build example Docker Image `docker build . -t backstage-test -f Containerfile`
   - Tag & Push 
   ```
   docker tag backstage-test $DOCKER_REGISTRY/backstage-test:latest
-  docker push $DOCKER_REGISTR/backstage-test:latest               
+  docker push $DOCKER_REGISTRY/backstage-test:latest               
   ```
 
 
