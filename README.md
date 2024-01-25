@@ -27,7 +27,7 @@ In particular it demonstrates `Nexus Plugin`.
   ```
   - Test the Docker Registry URL (the URL in the screenshot is irrelevant, the Route URL always takes precedence) by executing :
   ``` 
-  docker login $DOCKER_REGISTRY` -u admin -p password1!
+  docker login $DOCKER_REGISTRY -u admin -p password1!
   ```
   - Build example Docker Image `docker build . -t backstage-test -f Containerfile`
   - Tag & Push 
