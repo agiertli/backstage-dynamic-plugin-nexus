@@ -7,3 +7,6 @@ resources:
   - subscription.yaml
   - nexus-cr.yaml
   - route.yaml
+  - docker-repository-route.yaml
+  - docker-repository-service.yaml
+

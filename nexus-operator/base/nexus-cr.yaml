@@ -3,6 +3,8 @@ apiVersion: sonatype.com/v1alpha1
 metadata:
   name: example-nexusrepo
   namespace: nexus
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   config:
     data: null
