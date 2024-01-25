@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: docker-repository
+  name: docker-registry
   namespace: nexus
 spec:
   port:
@@ -10,6 +10,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: docker-repository
+    name: docker-registry
     weight: 100
   wildcardPolicy: None
