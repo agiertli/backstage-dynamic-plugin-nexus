@@ -16,7 +16,7 @@ In particular it demonstrates `Nexus Plugin`.
 
 - Create the Nexus Docker Registry
   - Open the Nexus URL (as obtained above) and login with the provided user (admin)  and password (as obtained above)
-  - Change default password to something easier to remember, i.e. `password1!`
+  - Change default password to something easier to remember, i.e. `password1!` and make sure to enable Anonymous Access as well
   - Create the Docker Registry as per this screenshot ![Docker Registry Nexus](images/docker-registry-nexus.png "Docker Registry Nexus")
   - Port `5003` is important, as this repository precreates the `Service` and `Route` to listen on port `5003`. `Allow anonymous docker pull` is also crucial
   - Enable Docker Bearer Token Realm:
@@ -66,7 +66,7 @@ In particular it demonstrates `Nexus Plugin`.
  ```yaml
      extraEnvVars:
       - name: NEXUS_REPOSITORY_MANAGER_URL
-        value: "$DOCKER_REGISTRY" //substitute with real value
+        value: "https://$DOCKER_REGISTRY" //substitute with real value, https:// is required!
       - name: NEXUS_REPOSITORY_MANAGER_SECURE
         value: "false"
  ```
