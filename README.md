@@ -68,6 +68,8 @@ In particular it demonstrates `Nexus Plugin`.
 - Login to Backstage and create a new component
 - Locate the component in gitlab and add following annotation in `catalog-info.yaml`:
 ```yaml
+metadata:
+  annotations:
     nexus-repository-manager/docker.image-name: backstage-test
     nexus-repository-manager/docker.image-tag: latest
 ```
