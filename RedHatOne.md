@@ -56,10 +56,12 @@ You need to be logged in as `admin` user for the below steps to work. Nexus Repo
 - This will force the backstage pod to restart with our new configuration changes applied. The restart process usually takes a couple of minutes - this is because init container processes every plugin on Backstage pod startup.
 - Log in to the Backstage instance and create a catalog entry based on the provided `Securing a Quarkus Service Software Supply Chain` template.
 - Locate this new entry in the corresponding GitLab repository and apply following changes into to `catalog-info.yaml` which is located at the root of your repository:
-   ```yaml
+```yaml
+metadata:
+  annotations:
     nexus-repository-manager/docker.image-name: backstage-test
     nexus-repository-manager/docker.image-tag: latest
-   ```
+```
  - !! Don't change the annotation values, there is only one example image provided for this excercise and its name and tag is `backstage-test:latest`   
  - Save the changes in `catalog-info.yaml` file
  - Documentation on the supported annotation values for nexus plugin can be found here:
