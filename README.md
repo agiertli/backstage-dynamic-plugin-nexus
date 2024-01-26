@@ -48,19 +48,6 @@ In particular it demonstrates `Nexus Plugin`.
 ```yaml
       - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-nexus-repository-manager
         disabled: false
-        pluginConfig:
-          dynamicPlugins:
-            frontend:
-                janus-idp.backstage-plugin-nexus-repository-manager:
-                  mountPoints:
-                    - mountPoint: entity.page.image-registry/cards
-                      importName: NexusRepositoryManagerPage
-                      config:
-                        layout:
-                          gridColumn: 1 / -1
-                        if:
-                          anyOf:
-                          - isNexusRepositoryManagerAvailable
 ```
 - Configure the nexus plugin in `backstage-values.yaml -> upstream.backstage.extraEnvVars`:
  ```yaml
@@ -72,6 +59,12 @@ In particular it demonstrates `Nexus Plugin`.
  ```
 
 - Git commit & git push
+- At this point, you need to log in to ArgoCD and manually request a sync of Backstage gitops repository.
+  - Locate the ArgoCD server URL via following command `oc get route argocd-server -n openshift-gitops`
+  - Login with `admin` user
+  - Locate `backstage` application and click `Hard Refresh` as shown in the pic below
+   ![Hard Refresh](images/hard-refresh.png "Hard Refresh")
+   - This will cause Backstage pod to restart with the new changes applied. The restart process takes couple of minutes to complete due to processing of dynamic pligins
 - Login to Backstage and create a new component
 - Locate the component in gitlab and add following annotation in `catalog-info.yaml`:
 ```yaml
