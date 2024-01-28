@@ -18,7 +18,7 @@ Only steps 6/7/8 are required when using Red Hat Developer Hub. Let's take a clo
 
 ## Step By Step Guide
 
-You need to be logged in as `admin` user for the below steps to work. Nexus Repository, with the accompanied Docker Registry and example Docker Image  has been set up for you.
+You need to be logged in as `admin` user for the below steps to work. Nexus Repository, with the accompanied Docker Registry and example Docker Image  has been already set up for you.
 
 - RHDH instance on this cluster is installed via ArgoCD Application and its GitOps repository is stored in a GitLab repository.
 - Locate GitLab URL 
@@ -41,11 +41,11 @@ You need to be logged in as `admin` user for the below steps to work. Nexus Repo
       backstage:
         extraEnvVars:
           - name: NEXUS_REPOSITORY_MANAGER_URL
-            value: <TODO>
+            value: "https://docker-registry-nexus.apps.cluster-ztblf.sandbox3018.opentlc.com"
           - name: NEXUS_REPOSITORY_MANAGER_SECURE
             value: "false"         
    ```  
-- Git Commit & Git Push
+- Git Commit & Git Push as `user1`
 - At this point we need to force ArgoCD Sync for our recent change. This is required due to the fact our values file is configured as a remote file and ArgoCD by default does not track changes in remote files
 - Log into the following ArgoCD instance using `admin` user
   ```bash
@@ -68,6 +68,7 @@ metadata:
    - https://github.com/janus-idp/backstage-plugins/blob/main/plugins/nexus-repository-manager/ANNOTATIONS.md
 - Locate your new component in the Backstage UI and click `Image Registry` tab. If everything has been set up correctly you should see:
   ![Docker Registry Nexus In Backstage](images/nexus-plugin-success.png "Success Nexus")
+  - Note that it might take couple of minutes for changes to take affect. Consider also trying Anonymous Browser window
 
 ## Conclusion
 In this repository we have successfully demonstrated how we can leverage RHDH Dynamic Plugins feature. It's a key differentiator from the upstream Backstage project and if you ever had to add a new static plugin to your Backstage instance you understand how drastically simplified the process of working with Dynamic Plugins is. This is a powerful RHDH feature, so let's make sure our customers are aware of it!
