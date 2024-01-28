@@ -14,7 +14,7 @@ Adding a "normal" (static) plugin is a tedious process which requires a complete
 7. Commit, Push, Merge
 8. Deploy
 
-Only steps 6/7/8 are required when using Red Hat Developer Hub. Let's take a closer look at these steps in context of enabling Nexus dynamic plugin.
+Only steps 6/7/8 are required when you want to enable Dynamic Plugin using RHDH. Let's take a closer look at these steps in context of enabling Nexus dynamic plugin.
 
 ## Step By Step Guide
 
