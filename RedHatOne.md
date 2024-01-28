@@ -45,6 +45,7 @@ You need to be logged in as `admin` user for the below steps to work. Nexus Repo
           - name: NEXUS_REPOSITORY_MANAGER_SECURE
             value: "false"         
    ```  
+- **Don't change the Nexus URL! It has been setup only on a single cluster and it does not exist on student cluster!** 
 - Git Commit & Git Push as `user1`
 - At this point we need to force ArgoCD Sync for our recent change. This is required due to the fact our values file is configured as a remote file and ArgoCD by default does not track changes in remote files
 - Log into the following ArgoCD instance using `admin` user
